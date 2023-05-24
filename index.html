@@ -20,6 +20,10 @@
 
 <body>
   <main class="main">
+    <button class="change-data-btn btn">
+      <i class="fa-solid fa-calculator"></i>
+    </button>
+
     <section class="result">
       <div class="result-box">
         <div class="result-box__result-area">
@@ -40,19 +44,27 @@
           <h2>Summary</h2>
           <div class="result-box__summary-item reaction">
             <h4><i class="fa-solid fa-bolt"></i> Reaction </h4>
-            <p class="result-box__summary-stat"> <span class="points reaction-points">80</span> / 100</p>
+            <p class="result-box__summary-stat"> <span class="points reaction-points"
+                data-parameter="reaction">80</span> / 100
+            </p>
           </div>
           <div class="result-box__summary-item memory">
             <h4><i class="fa-solid fa-brain"></i> Memory </h4>
-            <p class="result-box__summary-stat"> <span class="points reaction-points">92</span> / 100</p>
+            <p class="result-box__summary-stat"> <span class="points memory-points" data-parameter="memory">92</span> /
+              100
+            </p>
           </div>
           <div class="result-box__summary-item verbal">
             <h4><i class="fa-regular fa-comment-dots"></i> Verbal </h4>
-            <p class="result-box__summary-stat"> <span class="points reaction-points">61</span> / 100</p>
+            <p class="result-box__summary-stat"> <span class="points verbal-points" data-parameter="verbal">61</span> /
+              100
+            </p>
           </div>
           <div class="result-box__summary-item visual">
             <h4><i class="fa-regular fa-eye"></i> Visual </h4>
-            <p class="result-box__summary-stat"> <span class="points reaction-points">72</span> / 100</p>
+            <p class="result-box__summary-stat"> <span class="points visual-points" data-parameter="visual">72</span> /
+              100
+            </p>
           </div>
 
           <button class="continue-btn btn">Continue</button>
@@ -60,6 +72,30 @@
         </div>
       </div>
     </section>
+    <div class="modal">
+      <div class="modal-box">
+        <h2>Change your stats</h2>
+        <div class="result-box__summary-item reaction">
+          <h4><i class="fa-solid fa-bolt"></i> Reaction </h4>
+          <input class="userInput" type="number" name="reaction" id="reaction" min="0" max="100" placeholder="0 - 100">
+        </div>
+        <div class="result-box__summary-item memory">
+          <h4><i class="fa-solid fa-brain"></i> Memory </h4>
+          <input class="userInput" type="number" name="memory" id="memory" min="0" max="100" placeholder="0 - 100">
+        </div>
+        <div class="result-box__summary-item verbal">
+          <h4><i class="fa-regular fa-comment-dots"></i> Verbal </h4>
+          <input class="userInput" type="number" name="verbal" id="verbal" min="0" max="100" placeholder="0 - 100">
+        </div>
+        <div class="result-box__summary-item visual">
+          <h4><i class="fa-regular fa-eye"></i> Visual </h4>
+          <input class="userInput" type="number" name="visual" id="visual" min="0" max="100" placeholder="0 - 100">
+        </div>
+        <button class="btn submit-stats">
+          Calculate your score
+        </button>
+      </div>
+    </div>
   </main>
 
 
@@ -72,6 +108,8 @@
       Coded by <a href="https://www.frontendmentor.io/profile/graqu" target="_blank">@graqu</a>
     </div>
   </footer>
+
+  <script src="./js/main.js"></script>
 
   <script type="module" src="https://graqu.github.io/Measure_tool/js/script.js"></script>
 </body>

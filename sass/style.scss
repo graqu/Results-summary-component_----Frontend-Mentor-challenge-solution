@@ -44,6 +44,47 @@ body {
 	font-size: 1.6rem;
 	background-color: var(--White);
 }
+.result-box__summary-item {
+	margin: 18px 0;
+	padding: 1em;
+	min-height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 14px;
+	background-color: var(--Pale-blue);
+	i {
+		margin: 0 0.6em 0 0;
+	}
+}
+.reaction {
+	background-color: var(--Light-red-back);
+	bacg i,
+	h4 {
+		color: var(--Light-red);
+	}
+}
+.memory {
+	background-color: var(--Orangey-yellow-back);
+	i,
+	h4 {
+		color: var(--Orangey-yellow);
+	}
+}
+.verbal {
+	background-color: var(--Green-teal-back);
+	i,
+	h4 {
+		color: var(--Green-teal);
+	}
+}
+.visual {
+	background-color: var(--Cobalt-blue-back);
+	i,
+	h4 {
+		color: var(--Cobalt-blue);
+	}
+}
 .result {
 	display: flex;
 	flex-direction: column;
@@ -54,7 +95,6 @@ body {
 .btn {
 	margin: 5px 0;
 	padding: 0.8em 1.6em;
-	width: 100%;
 	border: none;
 	border-radius: 1.4em / 50% 50%;
 	color: var(--White);
@@ -68,6 +108,16 @@ body {
 	&:hover {
 		background-color: var(--Violet-blue);
 	}
+}
+.continue-btn {
+	width: 100%;
+}
+.change-data-btn {
+	position: absolute;
+	padding: 0.8em 1.2em;
+	margin: 10px;
+	border-radius: 50%;
+	z-index: 5;
 }
 .result-box {
 	padding: 33px;
@@ -98,12 +148,25 @@ body {
 		background-image: linear-gradient(to bottom, var(--Light-slate-blue), var(--Light-royal-blue));
 	}
 	&__point-circle {
+		position: relative;
 		margin: 22px;
 		padding: 1.5em;
 		width: 144px;
 		height: 144px;
 		border-radius: 50%;
-		background-image: linear-gradient(to bottom, var(--Violet-blue), var(--Persian-blue) 100%);
+		background-image: conic-gradient(hsl(166, 100%, 37%) 280deg, var(--Violet-blue) 0deg);
+		// &::after {
+		// 	content: '';
+		// 	position: absolute;
+		// 	top: 50%;
+		// 	left: 50%;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	border-radius: 50%;
+		// 	transform: translate(-50%, -50%);
+		// 	background-image: linear-gradient(to bottom, var(--Violet-blue), var(--Persian-blue) 100%) ;
+		// 	z-index: -1;
+		// }
 		h2 {
 			font-size: 5.2rem;
 			color: var(--White);
@@ -115,47 +178,6 @@ body {
 		color: var(--White);
 	}
 	&__summary {
-		&-item {
-			margin: 18px 0;
-			padding: 1em;
-			min-height: 56px;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			border-radius: 14px;
-			background-color: var(--Pale-blue);
-			i {
-				margin: 0 0.6em 0 0;
-			}
-		}
-		.reaction {
-			background-color: var(--Light-red-back);
-			bacg i,
-			h4 {
-				color: var(--Light-red);
-			}
-		}
-		.memory {
-			background-color: var(--Orangey-yellow-back);
-			i,
-			h4 {
-				color: var(--Orangey-yellow);
-			}
-		}
-		.verbal {
-			background-color: var(--Green-teal-back);
-			i,
-			h4 {
-				color: var(--Green-teal);
-			}
-		}
-		.visual {
-			background-color: var(--Cobalt-blue-back);
-			i,
-			h4 {
-				color: var(--Cobalt-blue);
-			}
-		}
 		&-stat {
 			font-weight: normal;
 			color: var(--desaturated-dark-blue);
@@ -171,6 +193,29 @@ body {
 	}
 }
 
+.modal {
+	position: absolute;
+	padding: 20px;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	&-box {
+		padding: 30px;
+		max-height: 100%;
+		max-width: 600px;
+		border-radius: 14px;
+		background-color: var(--White);
+	}
+}
+.show {
+	display: flex;
+}
+
 .attribution {
 	font-size: 11px;
 	text-align: center;
@@ -184,7 +229,7 @@ body {
 	body {
 		font-size: 1.8rem;
 	}
-	.btn {
+	.continue-btn {
 		margin: 25px 0 5px;
 	}
 	.result-box {
