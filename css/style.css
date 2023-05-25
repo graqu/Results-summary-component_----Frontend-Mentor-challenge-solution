@@ -127,6 +127,9 @@ body {
   height: 100%;
   background-color: var(--White);
   flex-grow: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .result-box h1 {
   font-size: 1.8rem;
@@ -156,11 +159,28 @@ body {
   width: 144px;
   height: 144px;
   border-radius: 50%;
-  background-image: conic-gradient(hsl(166, 100%, 37%) 280deg, var(--Violet-blue) 0deg);
+  background-image: conic-gradient(hsl(76, 100%, 37%) 280deg, var(--Violet-blue) 0deg);
+  z-index: 0;
+}
+.result-box__point-circle-inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(to bottom, var(--Light-slate-blue), var(--Light-royal-blue));
+  z-index: 0;
 }
 .result-box__point-circle h2 {
   font-size: 5.2rem;
   color: var(--White);
+}
+.result-box__point-circle h2,
+.result-box__point-circle p {
+  position: relative;
+  z-index: 2;
 }
 .result-box .score-feedback {
   margin: 0.1em 0 0.5em;

@@ -3,6 +3,8 @@ const openModalBtn = document.querySelector('.change-data-btn')
 const submitChangesBtn = document.querySelector('.submit-stats')
 const userInputs = document.querySelectorAll('.userInput')
 const pointsValues = document.querySelectorAll('.points')
+const scoreCircle = document.querySelector('.result-box__point-circle')
+const mainScore = document.querySelector('.main-score')
 
 const reactionInput = document.querySelector('#reaction')
 const memoryInput = document.querySelector('#memory')
@@ -16,7 +18,16 @@ let visualLvl = 72
 let finalPoints = 76
 
 const handleModal = () => {
-	modal.classList.toggle('show')
+	if (modal.classList.contains('show')) {
+		modal.classList.remove('show')
+	} else {
+		modal.classList.add('show')
+		reactionInput.value = ''
+		memoryInput.value = ''
+		verbalInput.value = ''
+		visualInput.value = ''
+		userInputs.length = ''
+	}
 }
 const handleStats = () => {
 	handleInputs()
@@ -67,8 +78,28 @@ const showNewStats = () => {
 				parameter.textContent = visualLvl
 				break
 		}
+		changeFinalStat()
 	})
 }
+const changeFinalStat = () => {
+	const angle = 3.6 * finalPoints
+	mainScore.textContent = finalPoints
+	scoreCircle.style.backgroundImage = `conic-gradient(hsl(${finalPoints}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
+}
+
+// const changeValue = e => {
+// 	if (e.key === 'ArrowUp') {
+// 		finalPoints++
+// 	} else {
+// 		finalPoints--
+// 	}
+// 	changeFinalStat()
+// }
 
 openModalBtn.addEventListener('click', handleModal)
 submitChangesBtn.addEventListener('click', handleStats)
+// window.addEventListener('keydown', e => {
+// 	if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+// 		changeValue(e)
+// 	}
+// })
