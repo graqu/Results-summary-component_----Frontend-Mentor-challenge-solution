@@ -16,6 +16,7 @@ let memoryLvl = 92
 let verbalLvl = 61
 let visualLvl = 72
 let finalPoints = 76
+let points = 0
 
 const handleModal = () => {
 	if (modal.classList.contains('show')) {
@@ -78,14 +79,36 @@ const showNewStats = () => {
 				parameter.textContent = visualLvl
 				break
 		}
-		changeFinalStat()
 	})
+	animateStats()
 }
 const changeFinalStat = () => {
-	const angle = 3.6 * finalPoints
-	mainScore.textContent = finalPoints
-	scoreCircle.style.backgroundImage = `conic-gradient(hsl(${finalPoints}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
+	const angle = 3.6 * points
+	if (points < finalPoints) {
+		points++
+		mainScore.textContent = points
+		scoreCircle.style.backgroundImage = `conic-gradient(hsl(${points}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
+	} else {
+		mainScore.textContent = points
+		scoreCircle.style.backgroundImage = `conic-gradient(hsl(${points}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
+	}
 }
+const animateStats = () => {
+	points = 0
+	const time = 1500
+	const aInterval = parseInt(time / finalPoints)
+	console.log(aInterval)
+	setInterval(changeFinalStat, aInterval)
+	setTimeout(() => {
+		clearInterval()
+	}, time)
+}
+
+openModalBtn.addEventListener('click', handleModal)
+submitChangesBtn.addEventListener('click', handleStats)
+animateStats()
+
+//Testing functionality
 
 // const changeValue = e => {
 // 	if (e.key === 'ArrowUp') {
@@ -96,8 +119,6 @@ const changeFinalStat = () => {
 // 	changeFinalStat()
 // }
 
-openModalBtn.addEventListener('click', handleModal)
-submitChangesBtn.addEventListener('click', handleStats)
 // window.addEventListener('keydown', e => {
 // 	if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
 // 		changeValue(e)
