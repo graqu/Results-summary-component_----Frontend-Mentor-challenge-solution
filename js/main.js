@@ -83,24 +83,21 @@ const showNewStats = () => {
 	animateStats()
 }
 const changeFinalStat = () => {
-	const angle = 3.6 * points
+	let angle
 	if (points < finalPoints) {
 		points++
-		mainScore.textContent = points
-		scoreCircle.style.backgroundImage = `conic-gradient(hsl(${points}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
-	} else {
-		mainScore.textContent = points
-		scoreCircle.style.backgroundImage = `conic-gradient(hsl(${points}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
 	}
+	mainScore.textContent = parseInt(points)
+	angle = Math.round(3.6 * points)
+	scoreCircle.style.backgroundImage = `conic-gradient(hsl(${points}, 100%, 37%) ${angle}deg, var(--Violet-blue) 0deg)`
 }
 const animateStats = () => {
 	points = 0
 	const time = 1500
 	const aInterval = parseInt(time / finalPoints)
-	console.log(aInterval)
-	setInterval(changeFinalStat, aInterval)
+	const increasing = setInterval(changeFinalStat, aInterval)
 	setTimeout(() => {
-		clearInterval()
+		clearInterval(increasing)
 	}, time)
 }
 
