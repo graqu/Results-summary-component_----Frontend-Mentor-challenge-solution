@@ -1,6 +1,6 @@
 # Frontend Mentor - Results summary component solution
 
-This is a special solution to the [Results summary component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV). I've added here my own idea for jacaScript code. 
+This is a special solution to the [Results summary component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/results-summary-component-CE_K6s0maV). I've added here my own idea for javaScript code. 
 
 
 Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
